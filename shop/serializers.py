@@ -34,5 +34,5 @@ class CategoryDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'date_created', 'products']
     def get_products(self, instance):
         queryset = instance.products.filter(active=True)
-        serializer = ProductSerializer(queryset, many=True)
+        serializer = ProductListSerializer(queryset, many=True)
         return serializer.data
